@@ -3,7 +3,7 @@
 Plugin Name: اولین فرم
 <<<<<<< HEAD
 Plugin URI: https://github.com/abaharloo/first-form
-Update URI: https://github.com/abaharloo/first-form/archive/refs/tags/v1.0.0.zip
+Update URI: https://github.com/abaharloo/first-form/archive/refs/tags/v1.1.0.zip
 Description: افزونه ساخت فرم برای ثبت‌نام کسب‌وکارها با قابلیت‌های پیشرفته
 Version: 1.1.0
 Author: Amir Baharloo
