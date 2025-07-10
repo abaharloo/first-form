@@ -1,107 +1,383 @@
-/* استایل‌های فرم اولین فرم */
+/* استایل‌های فرم اولین فرم - نسخه 1.1.0 */
+.bfb-form-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
 .bfb-form {
     max-width: 600px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     background: #f2f2f2;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(12,12,12,0.15);
+    border: 3px solid #ff3800;
+    position: relative;
+    overflow: hidden;
+}
+
+.bfb-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff3800, #0073ff);
+}
+
+.bfb-form-description {
+    background: rgba(255,56,0,0.1);
+    padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(12,12,12,0.1);
-    border: 2px solid #ff3800;
+    margin-bottom: 25px;
+    border-right: 4px solid #ff3800;
+}
+
+.bfb-form-description p {
+    margin: 0;
+    color: #0c0c0c;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .bfb-field {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    position: relative;
 }
 
 .bfb-field label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 600;
     color: #0c0c0c;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.bfb-field .required {
+    color: #ff3800;
+    font-weight: bold;
 }
 
 .bfb-field input[type="text"],
+.bfb-field input[type="tel"],
+.bfb-field input[type="email"],
 .bfb-field select,
 .bfb-field input[type="file"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px 15px;
     border: 2px solid #0c0c0c;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 16px;
     background: #f2f2f2;
     color: #0c0c0c;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .bfb-field input[type="text"]:focus,
+.bfb-field input[type="tel"]:focus,
+.bfb-field input[type="email"]:focus,
 .bfb-field select:focus {
     outline: none;
     border-color: #0073ff;
-    box-shadow: 0 0 5px rgba(0,115,255,0.3);
+    box-shadow: 0 0 0 3px rgba(0,115,255,0.2);
+    transform: translateY(-1px);
 }
 
-.bfb-field input[type="radio"] {
-    margin-right: 5px;
-    accent-color: #ff3800;
+.bfb-field input[type="file"] {
+    padding: 10px;
+    background: #fff;
+    border: 2px dashed #0c0c0c;
 }
 
-.bfb-field input[type="submit"] {
-    background: #ff3800;
-    color: #f2f2f2;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 4px;
+.bfb-field input[type="file"]:hover {
+    border-color: #0073ff;
+    background: rgba(0,115,255,0.05);
+}
+
+.bfb-file-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+/* استایل برای رادیو و چک‌باکس */
+.bfb-radio-group,
+.bfb-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bfb-radio-label,
+.bfb-checkbox-label {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    font-size: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.5);
+}
+
+.bfb-radio-label:hover,
+.bfb-checkbox-label:hover {
+    background: rgba(255,56,0,0.1);
+    transform: translateX(5px);
+}
+
+.bfb-radio-label input[type="radio"],
+.bfb-checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #ff3800;
+    transform: scale(1.2);
+}
+
+.bfb-radio-text,
+.bfb-checkbox-text {
+    font-size: 14px;
+    color: #0c0c0c;
+    font-weight: 500;
+}
+
+/* دکمه ارسال */
+.bfb-submit-container {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255,56,0,0.2);
+}
+
+.bfb-submit-btn {
+    background: linear-gradient(135deg, #ff3800, #e62e00);
+    color: #f2f2f2;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
     font-weight: bold;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255,56,0,0.3);
+    min-width: 200px;
 }
 
-.bfb-field input[type="submit"]:hover {
-    background: #e62e00;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255,56,0,0.3);
+.bfb-submit-btn:hover {
+    background: linear-gradient(135deg, #e62e00, #cc2900);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,56,0,0.4);
 }
 
-/* استایل برای فیلدهای اجباری */
-.bfb-field label:after {
-    content: " *";
-    color: #ff3800;
+.bfb-submit-btn:active {
+    transform: translateY(-1px);
 }
 
-/* استایل برای پیام‌های خطا */
+/* استایل برای پیام‌های خطا و موفقیت */
 .bfb-error {
     color: #ff3800;
     font-size: 14px;
-    margin-top: 5px;
-    font-weight: bold;
+    margin-top: 8px;
+    font-weight: 600;
+    padding: 8px 12px;
+    background: rgba(255,56,0,0.1);
+    border-radius: 6px;
+    border-right: 3px solid #ff3800;
 }
 
-/* استایل برای پیام‌های موفقیت */
 .bfb-success {
     color: #0073ff;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 8px;
+    font-weight: 600;
+    padding: 8px 12px;
+    background: rgba(0,115,255,0.1);
+    border-radius: 6px;
+    border-right: 3px solid #0073ff;
+}
+
+/* استایل برای پیام‌های موفقیت پیشرفته */
+.bfb-success h3 {
+    color: #0073ff;
+    margin: 0 0 10px 0;
+    font-size: 18px;
     font-weight: bold;
+}
+
+.bfb-success p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* استایل برای پیام ثبت‌نام موفق */
+.bfb-registration-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+    text-align: center;
+}
+
+.bfb-registration-success h3 {
+    color: #fff;
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bfb-registration-success p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* استایل برای کارت‌های آمار */
+.bfb-stat-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #ff3800;
+    transition: all 0.3s ease;
+}
+
+.bfb-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.bfb-stat-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #0c0c0c;
+    font-weight: 600;
+}
+
+.bfb-stat-card p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    .bfb-form-container {
+        padding: 0 10px;
+    }
+    
+    .bfb-form {
+        padding: 20px;
+        margin: 10px auto;
+        border-radius: 8px;
+    }
+    
+    .bfb-field {
+        margin-bottom: 20px;
+    }
+    
+    .bfb-field label {
+        font-size: 14px;
+    }
+    
+    .bfb-field input[type="text"],
+    .bfb-field input[type="tel"],
+    .bfb-field input[type="email"],
+    .bfb-field select {
+        padding: 10px 12px;
+        font-size: 16px; /* جلوگیری از زوم در iOS */
+    }
+    
+    .bfb-submit-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+        min-width: auto;
+    }
+    
+    .bfb-radio-group,
+    .bfb-checkbox-group {
+        gap: 8px;
+    }
+    
+    .bfb-radio-label,
+    .bfb-checkbox-label {
+        padding: 8px;
+    }
+    
+    .bfb-success {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .bfb-registration-success {
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .bfb-registration-success h3 {
+        font-size: 18px;
+    }
+    
+    .bfb-registration-success p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bfb-form {
+        padding: 15px;
+        margin: 5px auto;
+    }
+    
+    .bfb-field {
+        margin-bottom: 15px;
+    }
+    
+    .bfb-submit-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .bfb-stat-card {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .bfb-stat-card h3 {
+        font-size: 14px;
+    }
+    
+    .bfb-stat-card p {
+        font-size: 20px;
+    }
 }
 
 /* استایل برای دکمه‌های مدیریت */
 .bfb-admin-button {
     background: #0073ff;
     color: #f2f2f2;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
     margin: 5px;
     transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .bfb-admin-button:hover {
     background: #0056cc;
     color: #f2f2f2;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,115,255,0.3);
 }
 
 /* استایل برای جداول مدیریت */
@@ -110,21 +386,114 @@
     border: 2px solid #0c0c0c;
     border-radius: 8px;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .bfb-table th {
     background: #ff3800;
     color: #f2f2f2;
-    padding: 12px;
+    padding: 15px;
     font-weight: bold;
+    text-align: right;
 }
 
 .bfb-table td {
-    padding: 10px;
+    padding: 12px 15px;
     border-bottom: 1px solid #0c0c0c;
     color: #0c0c0c;
+    vertical-align: top;
 }
 
 .bfb-table tr:hover {
     background: rgba(255,56,0,0.1);
+}
+
+/* انیمیشن‌های اضافی */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bfb-form {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.bfb-success,
+.bfb-registration-success {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* استایل برای کد شورت‌کد */
+.bfb-shortcode {
+    background: #0c0c0c;
+    color: #f2f2f2;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    border: 1px solid #ff3800;
+}
+
+/* استایل برای نمودارها */
+.bfb-chart-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.bfb-chart-bar {
+    background: linear-gradient(135deg, #ff3800, #0073ff);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+}
+
+.bfb-chart-bar:hover {
+    transform: scaleY(1.1);
+    box-shadow: 0 2px 8px rgba(255,56,0,0.3);
+}
+
+/* استایل برای نوار پیشرفت */
+.bfb-progress-bar {
+    background: #f0f0f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.bfb-progress-fill {
+    background: linear-gradient(90deg, #ff3800, #0073ff);
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+/* استایل برای کارت‌های آمار */
+.bfb-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.bfb-stats-grid .bfb-stat-card {
+    margin: 0;
+}
+
+/* استایل برای موبایل */
+@media (max-width: 768px) {
+    .bfb-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .bfb-chart-container {
+        padding: 15px;
+    }
 } 

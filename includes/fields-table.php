@@ -14,6 +14,7 @@ function bfb_create_fields_table() {
         field_type VARCHAR(50) NOT NULL,
         is_required TINYINT(1) DEFAULT 0,
         field_options TEXT NULL,
+        field_order INT DEFAULT 0,
         PRIMARY KEY  (id)
     ) $charset_collate;";
 
@@ -27,11 +28,15 @@ function bfb_create_forms_table() {
     $charset_collate = $wpdb->get_charset_collate();
     $sql = "CREATE TABLE $table_name (
         id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
         form_name VARCHAR(255) NOT NULL,
         form_description TEXT NULL,
         auto_register TINYINT(1) DEFAULT 0,
+        shortcode VARCHAR(50) NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY  (id)
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY  (id),
+        KEY user_id (user_id)
     ) $charset_collate;";
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
@@ -43,10 +48,16 @@ function bfb_create_submissions_table() {
     $charset_collate = $wpdb->get_charset_collate();
     $sql = "CREATE TABLE $table_name (
         id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        form_id BIGINT(20) UNSIGNED NOT NULL,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
         form_name VARCHAR(255) NOT NULL,
         submitted_data LONGTEXT NOT NULL,
+        ip_address VARCHAR(45) NULL,
+        user_agent TEXT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY  (id)
+        PRIMARY KEY  (id),
+        KEY form_id (form_id),
+        KEY user_id (user_id)
     ) $charset_collate;";
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
