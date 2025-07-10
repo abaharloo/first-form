@@ -4,7 +4,7 @@ Plugin Name: اولین فرم
 Description: فرم‌ساز با امکان اتصال به ثبت نام وردپرس
 Version: 1.0.2
 Author: Amir Baharloo
-Plugin URI: https://github.com/amirbaharloo/first-form
+Plugin URI: https://github.com/abaharloo/first-form
 Update URI: https://github.com/amirbaharloo/first-form/releases/latest/download/first-form.zip
 */
 
