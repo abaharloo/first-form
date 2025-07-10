@@ -1,12 +1,13 @@
 <?php
 /*
 Plugin Name: اولین فرم
+<<<<<<< HEAD
 Plugin URI: https://github.com/abaharloo/first-form
 Update URI: https://github.com/abaharloo/first-form/archive/refs/tags/v1.0.0.zip
 Description: افزونه ساخت فرم برای ثبت‌نام کسب‌وکارها با قابلیت‌های پیشرفته
 Version: 1.1.0
-Author: Your Name
-Author URI: https://your-website.com
+Author: Amir Baharloo
+Author URI: https://github.com/abaharloo
 License: GPL v2 or later
 Text Domain: first-form
 */
@@ -121,6 +122,7 @@ function bfb_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'bfb_enqueue_scripts');
 
+<<<<<<< HEAD
 // اضافه کردن لینک تنظیمات به صفحه افزونه‌ها
 function bfb_plugin_action_links($links) {
     $settings_link = '<a href="' . admin_url('admin.php?page=bfb-dashboard') . '">تنظیمات افزونه</a>';
@@ -382,3 +384,6 @@ function bfb_display_statistics($user_id = null) {
     
     return $output;
 } 
+=======
+register_activation_hook(__FILE__, 'bfb_create_all_tables'); 
+>>>>>>> 73b15bfbe45eb4adfe6d0cce2f364ea869841845
