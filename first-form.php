@@ -5,7 +5,7 @@ Description: فرم‌ساز با امکان اتصال به ثبت نام ور�
 Version: 1.0.2
 Author: Amir Baharloo
 Plugin URI: https://github.com/abaharloo/first-form
-Update URI: https://github.com/amirbaharloo/first-form/releases/latest/download/first-form.zip
+Update URI: https://github.com/abaharloo/first-form/archive/refs/tags/v1.0.0.zip
 */
 
 defined('ABSPATH') || exit;
